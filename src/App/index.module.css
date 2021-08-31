@@ -1,0 +1,107 @@
+.container {
+    padding: 5%;
+    margin: auto;
+    width: 50%;
+    font-family: 'Courier New', Courier, monospace;
+    border: solid 1px rgb(20, 27, 220)
+}
+
+.options {
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1%;
+}
+.options button{
+    background-color: rgb(43, 226, 104, 0.1);
+    margin: 0 10px;
+    width: 100%;
+    border: none;
+    border-top: solid 3px rgb(20, 27, 220,0);
+    border-left: solid 3px rgb(20, 27, 220,0);
+    border-bottom: solid 3px rgba(0, 0, 0, 0.1);
+    border-right: solid 3px rgba(0, 0, 0, 0.1);
+    font-size: 0.6rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+.options button:hover{
+    background-color: rgba(45, 134, 250, 0.309);
+    border-bottom: solid 3px rgb(20, 27, 220);
+    border-right: solid 3px rgb(20, 27, 220);
+}
+.options button:active{
+    background-color: rgba(45, 134, 250, 0.309);
+    border-top: solid 3px rgb(20, 27, 220);
+    border-left: solid 3px rgb(20, 27, 220);
+}
+
+.list {
+    /* background-color: burlywood; */
+}
+
+.element {
+    padding: 10px 20px;
+    border-bottom: solid 3px rgba(20, 27, 220, 0.247);
+}
+
+.radio {
+    /* background-color: crimson; */
+    width: 30px;    
+    /* color: crimson; */
+}
+
+.label {
+    /* background-color: cornflowerblue; */
+    padding: 0 0 0 20px;
+}
+
+.last_element {
+    /* background-color: rgb(251, 255, 0); */
+    padding: 10px 20px;
+    border-top: solid 3px rgb(20, 27, 220,0);
+    border-left: solid 3px rgb(20, 27, 220,0);
+    border-right: solid 3px rgba(0, 0, 0, 0);
+    border-bottom: solid 3px rgba(20, 27, 220, 0.247);
+}
+
+.last_element input {
+    background-color: rgb(255, 0, 0, 0);
+    /* margin: 0 0 0 10px; */
+    border-top: solid 3px rgb(20, 27, 220,0);
+    border-left: solid 3px rgb(20, 27, 220,0);
+    border-right: solid 3px rgba(0, 0, 0, 0);
+    border-bottom: solid 3px rgba(0, 0, 0, 0);
+    /* padding: 20px; */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    padding: 0 20px;
+}
+
+.last_element input:focus {
+    outline: none;
+}
+.last_element input::placeholder {
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.last_element button {
+    background-color: rgb(243, 199, 23, 0);
+    border-radius: 50%;
+    width: 30px;    
+    height: 30px;
+    border-top: solid 3px rgb(20, 27, 220,0);
+    border-left: solid 3px rgb(20, 27, 220,0);
+    border-right: solid 3px rgba(0, 0, 0, 0);
+    border-bottom: solid 3px rgba(20, 27, 220, 0);
+}
+
+.last_element button:hover {
+    background-color: rgb(243, 199, 23, 0);
+    border-radius: 50%;
+    border-top: solid 3px rgb(20, 27, 220,1);
+    border-left: solid 3px rgb(20, 27, 220,1);
+    border-right: solid 3px rgba(0, 0, 0, 1);
+    border-bottom: solid 3px rgba(20, 27, 220, 1);
+}
