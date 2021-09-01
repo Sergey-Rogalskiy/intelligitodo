@@ -1,7 +1,8 @@
 # Stellar Burger (Yandex React Course)
 It is a small project for vc to show TypeScript skills
+
 # Installation
-Run `npm install && npm start`
+Run `npm install && npm start` or run a bat file.
 After that all the dependicies will be installed and the local web will be available on port 3000
 
 # Functionality
@@ -18,14 +19,9 @@ After that all the dependicies will be installed and the local web will be avail
 
 # Interface
 <div>
-  <img style="margin:1rem 0.5rem"  width=49% src="" />
-  <img style="margin:1rem 0.5rem" width=49% src="" />
-</div>
-<div>
-  <img style="margin:1rem 0.5rem"  width=49% src="" />
-  <img style="margin:1rem 0.5rem" width=49% src="" />
+  <img style="margin:1rem 0.5rem"  width=49% src="https://user-images.githubusercontent.com/72499342/131697448-9be57fcf-73b0-4754-84ea-6b08393f71d1.png" />
 </div>
 <br>
 
 # Plans and status
-After I finish it within 2 days, update the readme
+The application is fully completed besides TS.
