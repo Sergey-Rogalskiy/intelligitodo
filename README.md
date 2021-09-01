@@ -1,4 +1,4 @@
-# Stellar Burger (Yandex React Course)
+# Intelegent Todo List
 It is a small project for vc to show TypeScript skills
 
 # Installation
