@@ -1,9 +1,11 @@
 import s from './index.module.css'
+import {TodoListProps, Element} from '../types'
 
-const TodoList = (props: any) => {
+
+const TodoList = (props: TodoListProps) => {
     const {todoList, setTodoList, filter} = props
 
-    const setDone = (e: any, id:number) => {
+    const setDone = (e: React.FormEvent<EventTarget>, id:number) => {
         e.preventDefault()
         let newArray = [...todoList]
         // const index = newArray.map(e => e.id).indexOf(id);
@@ -12,9 +14,9 @@ const TodoList = (props: any) => {
         setTodoList(newArray)
     }
 
-    const deleteItem = (e: any, id:number) => {
+    const deleteItem = (e: React.FormEvent<EventTarget>, id:number) => {
         e.preventDefault()
-        const index = todoList.findIndex((el: any) => el.id === id);
+        const index = todoList.findIndex((el: Element) => el.id === id);
         
         let newArray = [
 			...todoList.slice(0, index),
@@ -28,9 +30,9 @@ const TodoList = (props: any) => {
 			case 'all':
 				return todoList;
 			case 'current':
-				return todoList.filter((item:any) => !item.done);
+				return todoList.filter((item: Element) => !item.done);
 			case 'done':
-				return todoList.filter((item:any) => item.done);
+				return todoList.filter((item: Element) => item.done);
 			default:
 				return todoList;
         }
@@ -41,7 +43,7 @@ const TodoList = (props: any) => {
     return(
         <ul className={s.list}>
             {
-                visibleItems.map((item: any) => {
+                visibleItems.map((item: Element) => {
                     return(
                         <li key={item.id} className={s.element}>
                             <span onClick={(e) => setDone(e, item.id)} >

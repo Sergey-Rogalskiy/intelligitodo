@@ -6,8 +6,14 @@ import Options from '../Options/Options';
 import s from './index.module.css'
 import { useEffect } from 'react';
 
+export type Element = {
+    id: number
+    label: string
+    done: boolean
+}
+
 const App = () => {
-    const initialTodoList: any = []
+    const initialTodoList: Array<Element> = []
     const [todoList, setTodoList] = useState(initialTodoList)
     const todos = localStorage.getItem('todos')
     
@@ -17,14 +23,14 @@ const App = () => {
     useEffect(()=> {
         if (initialTodoList2) {
             setTodoList(initialTodoList2)
-        }
-        
+        }// eslint-disable-next-line
     }, [setTodoList])
 
-    const [filter, setFilter] = useState('all')
-    const doneCount = todoList && todoList.filter((el: any) => !el.done).length;
 
-    const temp = (e: any) => {
+    const [filter, setFilter] = useState('all')
+    const doneCount = todoList && todoList.filter((el: Element) => !el.done).length;
+
+    const setTodoListWithLocalStorage = (e: Array<Element>) => {
         setTodoList(e)
         localStorage.setItem('todos', JSON.stringify(e));
     }
@@ -32,12 +38,11 @@ const App = () => {
     return(
         <div className={s.container}>
             <h1>TODO</h1>
-            <AddItem setTodoList={(e: any) => temp(e)} todoList={todoList}/>
+            <AddItem setTodoList={(e: Array<Element>) => setTodoListWithLocalStorage(e)} todoList={todoList}/>
 
             <div className={s.inner}>
-                <TodoList setTodoList={(e: any) => temp(e)} todoList={todoList} filter={filter}/>
+                <TodoList setTodoList={(e: Array<Element>) => setTodoListWithLocalStorage(e)} todoList={todoList} filter={filter}/>
                 <Options filter={filter} setFilter={setFilter} doneCount={doneCount} />
-
             </div>
         </div>
     )

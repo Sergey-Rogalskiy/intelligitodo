@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import s from './index.module.css'
+import {AddItemProps} from '../types'
 
-const AddItem = (props: any) => {
+const AddItem = (props: AddItemProps) => {
     const {todoList, setTodoList} = props
     const [text, setText] = useState('')
 
-    const addItem = (e: any) => {
+    const addItem = (e: React.FormEvent<EventTarget>) => {
         e.preventDefault()
         if (text) {
             setTodoList(
