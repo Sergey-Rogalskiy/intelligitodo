@@ -24,4 +24,4 @@ After that all the dependicies will be installed and the local web will be avail
 <br>
 
 # Plans and status
-The application is fully completed besides TS.
+The application is fully completed besides 2 any types (for setState) for TS.
