@@ -1,8 +1,8 @@
 # Intelegent Todo List
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e7ba90c3-c272-4ab1-8f40-4695542ed701/deploy-status)](https://app.netlify.com/sites/intelegitodocd/deploys)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e7ba90c3-c272-4ab1-8f40-4695542ed701/deploy-status)](https://intelegenttodo.netlify.app/)
 
 It is a small project for vc to show TypeScript skills
+# Demo
+[Netlify Manual Link](https://intelegenttodo.netlify.app/)
 
 # Installation
 Run `npm install && npm start` or run a bat file.
