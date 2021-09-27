@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import s from './index.module.css'
-import {AddItemProps} from '../types'
+import s from 'AddItem//index.module.css'
+import { AddItemProps } from 'types';
 
 const AddItem = (props: AddItemProps) => {
     const {todoList, setTodoList} = props

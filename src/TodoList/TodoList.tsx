@@ -1,5 +1,5 @@
-import s from './index.module.css'
-import {TodoListProps, Element} from '../types'
+import s from 'TodoList/index.module.css'
+import {TodoListProps, Element} from 'types'
 
 
 const TodoList = (props: TodoListProps) => {

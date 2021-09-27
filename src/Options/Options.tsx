@@ -1,5 +1,5 @@
-import s from './index.module.css'
-import { OptionsProps } from '../types'
+import s from 'Options/index.module.css'
+import { OptionsProps } from 'types'
 
 const Options = (props: OptionsProps) => {
     const {filter, setFilter, doneCount} = props

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import AddItem from '../AddItem/AddItem';
-import TodoList from '../TodoList/TodoList';
-import Options from '../Options/Options';
+import AddItem from 'AddItem/AddItem';
+import TodoList from 'TodoList/TodoList';
+import Options from 'Options/Options';
 
-import s from './index.module.css'
+import s from 'App/index.module.css'
 import { useEffect } from 'react';
 
 export type Element = {
