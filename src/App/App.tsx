@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import AddItem from 'AddItem/AddItem';
+import { useState, useCallback } from 'react';
+import { AddItem } from 'AddItem/AddItem';
 import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
 import { Element } from 'types';
@@ -25,10 +25,11 @@ const App = () => {
     const [filter, setFilter] = useState('all')
     const doneCount = todoList && todoList.filter((el: Element) => !el.done).length;
 
-    const setTodoListWithLocalStorage = (e: Array<Element>) => {
+
+    const setTodoListWithLocalStorage = useCallback((e: Array<Element>) => {
         setTodoList(e)
         localStorage.setItem('todos', JSON.stringify(e));
-    }
+    }, [])
     
     return(
         <div className={s.container}>

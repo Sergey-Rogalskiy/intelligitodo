@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, memo } from 'react';
 import s from 'AddItem//index.module.css'
 import { Element} from 'types'
 
@@ -7,7 +7,7 @@ type AddItemProps = {
     todoList: Array<Element>
 }
 
-const AddItem:FC<AddItemProps> = (props) => {
+const _AddItem:FC<AddItemProps> = (props) => {
     const {todoList, setTodoList} = props
     const [text, setText] = useState('')
 
@@ -37,4 +37,4 @@ const AddItem:FC<AddItemProps> = (props) => {
     )
 }
 
-export default AddItem
+export const AddItem = memo(_AddItem)
