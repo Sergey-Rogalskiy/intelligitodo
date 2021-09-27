@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import s from 'AddItem//index.module.css'
-import { AddItemProps } from 'types';
+import { Element} from 'types'
 
-const AddItem = (props: AddItemProps) => {
+type AddItemProps = {
+    setTodoList: any
+    todoList: Array<Element>
+}
+
+const AddItem:FC<AddItemProps> = (props) => {
     const {todoList, setTodoList} = props
     const [text, setText] = useState('')
 
