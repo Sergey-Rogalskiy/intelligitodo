@@ -1,11 +1,10 @@
-import { useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { AddItem } from 'AddItem/AddItem';
 import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
-import { Element } from 'types';
+import type { Element } from 'types';
 
 import s from './index.module.css'
-import { useEffect } from 'react';
 
 const App = () => {
     const initialTodoList: Array<Element> = []

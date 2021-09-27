@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import s from 'TodoList/index.module.css'
-import { Element} from 'types'
+import type { FC } from 'react'
+import type { Element} from 'types'
+import s from './index.module.css'
 
 type TodoListProps = {
     filter: string

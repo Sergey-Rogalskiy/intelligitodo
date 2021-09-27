@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import s from 'Options/index.module.css'
+import s from './index.module.css'
 
 type OptionsProps = {
     filter: string
