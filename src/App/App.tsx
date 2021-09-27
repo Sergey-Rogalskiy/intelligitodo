@@ -2,15 +2,10 @@ import { useState } from 'react';
 import AddItem from 'AddItem/AddItem';
 import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
+import { Element } from 'types';
 
 import s from 'App/index.module.css'
 import { useEffect } from 'react';
-
-export type Element = {
-    id: number
-    label: string
-    done: boolean
-}
 
 const App = () => {
     const initialTodoList: Array<Element> = []
@@ -38,10 +33,10 @@ const App = () => {
     return(
         <div className={s.container}>
             <h1>TODO</h1>
-            <AddItem setTodoList={(e: Array<Element>) => setTodoListWithLocalStorage(e)} todoList={todoList}/>
+            <AddItem setTodoList={setTodoListWithLocalStorage} todoList={todoList}/>
 
             <div className={s.inner}>
-                <TodoList setTodoList={(e: Array<Element>) => setTodoListWithLocalStorage(e)} todoList={todoList} filter={filter}/>
+                <TodoList setTodoList={setTodoListWithLocalStorage} todoList={todoList} filter={filter}/>
                 <Options filter={filter} setFilter={setFilter} doneCount={doneCount} />
             </div>
         </div>

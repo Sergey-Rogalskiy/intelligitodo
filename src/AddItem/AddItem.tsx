@@ -24,16 +24,16 @@ const AddItem:FC<AddItemProps> = (props) => {
         setText('')
     }
     return(
-            <div className={s.new_element}>
-                <form onSubmit={(e) => {addItem(e)}}>
-                    <button>&#10010;</button>
-                    <input 
-                        type="text" 
-                        placeholder='Add item' 
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}/>
-                </form>
-            </div>
+        <div className={s.new_element}>
+            <form onSubmit={(e) => {addItem(e)}}>
+                <button>&#10010;</button>
+                <input 
+                    type="text" 
+                    placeholder='Add item' 
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}/>
+            </form>
+        </div>
     )
 }
 

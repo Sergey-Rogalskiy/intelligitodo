@@ -4,7 +4,7 @@ import { Element} from 'types'
 
 type TodoListProps = {
     filter: string
-    setTodoList: any
+    setTodoList: (e: Element[]) => void
     todoList: Array<Element>
 }
 
