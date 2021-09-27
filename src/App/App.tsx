@@ -4,7 +4,7 @@ import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
 import { Element } from 'types';
 
-import s from 'App/index.module.css'
+import s from './index.module.css'
 import { useEffect } from 'react';
 
 const App = () => {
