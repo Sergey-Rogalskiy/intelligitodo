@@ -1,6 +1,6 @@
 import { FC, useState, memo } from 'react';
 import s from 'AddItem/index.module.css'
-import { Element} from 'types'
+import type { Element } from 'types'
 
 type AddItemProps = {
     setTodoList: any
