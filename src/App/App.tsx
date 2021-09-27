@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { AddItem } from 'AddItem/AddItem';
 import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
@@ -7,20 +7,14 @@ import type { Element } from 'types';
 import s from './index.module.css'
 
 const App = () => {
-    const initialTodoList: Array<Element> = []
-    const [todoList, setTodoList] = useState(initialTodoList)
+    let initialTodoList: Array<Element> = []
     const todos = localStorage.getItem('todos')
-    
     if (todos != null) {
-        var initialTodoList2 = JSON.parse(todos)
+        const initialTodoList2 = JSON.parse(todos)
+        initialTodoList = initialTodoList2
     }
-    useEffect(()=> {
-        if (initialTodoList2) {
-            setTodoList(initialTodoList2)
-        }// eslint-disable-next-line
-    }, [setTodoList])
-
-
+    const [todoList, setTodoList] = useState(initialTodoList)
+    
     const [filter, setFilter] = useState('all')
     const doneCount = todoList && todoList.filter((el: Element) => !el.done).length;
 
