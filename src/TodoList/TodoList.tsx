@@ -1,8 +1,14 @@
-import s from 'TodoList/index.module.css'
-import {TodoListProps, Element} from 'types'
+import type { FC } from 'react'
+import type { Element} from 'types'
+import s from './index.module.css'
 
+type TodoListProps = {
+    filter: string
+    setTodoList: (e: Element[]) => void
+    todoList: Array<Element>
+}
 
-const TodoList = (props: TodoListProps) => {
+const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
     const {todoList, setTodoList, filter} = props
 
     const setDone = (e: React.FormEvent<EventTarget>, id:number) => {

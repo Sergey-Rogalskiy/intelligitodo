@@ -1,7 +1,13 @@
-import s from 'Options/index.module.css'
-import { OptionsProps } from 'types'
+import { FC } from 'react';
+import s from './index.module.css'
 
-const Options = (props: OptionsProps) => {
+type OptionsProps = {
+    filter: string
+    setFilter: any
+    doneCount: number
+}
+
+const Options:FC<OptionsProps> = (props) => {
     const {filter, setFilter, doneCount} = props
     const buttons = [
         { name: 'all', label: 'All'},
