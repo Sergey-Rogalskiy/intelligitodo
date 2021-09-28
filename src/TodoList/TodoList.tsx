@@ -12,7 +12,7 @@ const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
     const {todoList, setTodoList, filter} = props
 
     const setDone = (e: React.FormEvent<EventTarget>, id:number) => {
-        e.preventDefault()
+        // e.preventDefault()
         let newArray = [...todoList]
         // const index = newArray.map(e => e.id).indexOf(id);
         const index = newArray.findIndex((el) => el.id === id);
@@ -52,11 +52,12 @@ const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
                 visibleItems.map((item: Element) => {
                     return(
                         <li key={item.id} className={s.element}>
-                            <span onClick={(e) => setDone(e, item.id)} >
+                            <span>
                                 <input 
+                                onClick={(e) => setDone(e, item.id)}
                                 id={item.id.toString()} 
-                                className={s.custom_radio} 
-                                type="radio" 
+                                className={s.custom_checkbox} 
+                                type="checkbox"
                                 checked={item.done} 
                                 onChange={()=>console.log('')}/>
                                 <label htmlFor={item.id.toString()} className={`${s.label} ${item.done ? s.checked : ''}`}>{item.label}</label> 
