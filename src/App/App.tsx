@@ -13,7 +13,7 @@ const App = () => {
         if (todos != null) {
             initialTodoList = JSON.parse(todos);
         }
-        return initialTodoList || []
+        return initialTodoList
     })
     
     const [filter, setFilter] = useState('all')
