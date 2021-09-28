@@ -7,23 +7,25 @@ type OptionsProps = {
     doneCount: number
 }
 
+export enum FilterOptions {
+    All= "All",
+    Current = "Current",
+    Done = "Done"
+}
+
 const Options:FC<OptionsProps> = (props) => {
     const {filter, setFilter, doneCount} = props
-    const buttons = [
-        { name: 'all', label: 'All'},
-        { name: 'current', label: 'Current'},
-        { name: 'done', label: 'Done'}
-    ]
+    const buttons = FilterOptions
 
     return(
         <div className={s.options}>
             <div className={s.counter}>{doneCount} left</div>
             {
-                buttons.map((item, index) => {
+                Object.keys(FilterOptions).map((item, index) => {
                     return(
                         <button key={index} 
-                            className={filter === item.name ? s.active : ''} onClick={()=>{setFilter(item.name)}}>
-                            {item.label}
+                            className={filter === item ? s.active : ''} onClick={()=>{setFilter(item)}}>
+                            {item}
                         </button>
                     )
                 })
