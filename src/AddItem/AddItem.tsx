@@ -8,7 +8,7 @@ type AddItemProps = {
     todoList: Array<Element>
 }
 
-const _AddItem:FC<AddItemProps> = (props) => {
+const AddItem:FC<AddItemProps> = (props) => {
     const {todoList, setTodoList} = props
     const [text, setText] = useState('')
 
@@ -38,4 +38,4 @@ const _AddItem:FC<AddItemProps> = (props) => {
     )
 }
 
-export const AddItem = memo(_AddItem)
+export default memo(AddItem)

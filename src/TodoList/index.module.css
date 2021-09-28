@@ -1,62 +1,57 @@
-
-
 .list {
-    background-color: #fff;
-    border-radius: 5px;
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 .element {
-    padding: 10px 20px;
-    border-bottom: solid 3px #aaa;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+  padding: 10px 20px;
+  border-bottom: solid 3px #aaa;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
-.custom_radio {
-    width: 30px;    
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
+.custom_checkbox {
+  width: 30px;    
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
-.custom_radio+label {
-    display: inline-flex;
-    align-items: center;
-    user-select: none;
-  }
-  .custom_radio+label::before {
-    content: '';
-    display: inline-block;
-    width: 0.5em;
-    height: 0.5em;
-    flex-shrink: 0;
-    flex-grow: 0;
-    background-color: #0000;
-    border: solid 1px #000;
-    box-sizing: border-box;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-  .custom_radio:checked+label::before {
-    background-color: #000;
-    box-sizing: border-box;
+.custom_checkbox+label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
 }
-.custom_radio+label:hover::before {
-    background-color: #aaa;
-  }
-.custom_radio:active+label::before {
-    background-color: #aaa;
-  }
-.custom_radio:focus+label::before {
-    background-color: #aaa;
-  }
+.custom_checkbox+label::before {
+  content: '';
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background-color: #0000;
+  border: solid 1px #000;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.custom_checkbox:checked+label::before {
+  background-color: #000;
+  box-sizing: border-box;
+}
+.custom_checkbox+label:hover::before {
+  background-color: #aaa;
+}
+.custom_checkbox:active+label::before {
+  background-color: #aaa;
+}
 
 
 .label {
     padding: 0 0 0 15px;
 }
 .label:hover {
-    color: #aaa);
+    color: #aaa;
     /* text-decoration: underline; */
 }
 .checked {
