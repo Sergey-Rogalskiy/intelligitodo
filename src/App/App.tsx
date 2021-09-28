@@ -3,6 +3,7 @@ import AddItem from 'AddItem/AddItem';
 import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
 import type { Element } from 'types';
+import { FilterOptions } from 'Options/Options';
 
 import s from './index.module.css'
 
@@ -21,7 +22,7 @@ const App = () => {
     }, [setTodoList])
 
 
-    const [filter, setFilter] = useState('all')
+    const [filter, setFilter] = useState(FilterOptions.All)
     const doneCount = todoList && todoList.filter((el: Element) => !el.done).length;
 
 
