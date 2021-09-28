@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { AddItem } from 'AddItem/AddItem';
+import AddItem from 'AddItem/AddItem';
 import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
 import type { Element } from 'types';
