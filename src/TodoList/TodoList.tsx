@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import type { Element} from 'types'
 import s from './index.module.css'
+import { FilterOptions } from 'Options/Options'
 
 type TodoListProps = {
     filter: string
@@ -33,11 +34,11 @@ const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
 
     const showVisibleItems = () => {
 		switch(filter) {
-			case 'all':
+			case FilterOptions.All:
 				return todoList;
-			case 'current':
+			case FilterOptions.Current:
 				return todoList.filter((item: Element) => !item.done);
-			case 'done':
+			case FilterOptions.Done:
 				return todoList.filter((item: Element) => item.done);
 			default:
 				return todoList;
@@ -45,7 +46,7 @@ const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
 
     }
     const visibleItems = showVisibleItems()
-
+    
     return(
         <ul className={s.list}>
             {
