@@ -1,5 +1,5 @@
-import { useEffect, useState, useCallback } from 'react';
-import AddItem from 'AddItem/AddItem';
+import { useState, useCallback } from 'react';
+import { AddItem } from 'AddItem/AddItem';
 import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
 import type { Element } from 'types';
@@ -8,24 +8,18 @@ import { FilterOptions } from 'Options/Options';
 import s from './index.module.css'
 
 const App = () => {
-    const initialTodoList: Array<Element> = []
-    const [todoList, setTodoList] = useState(initialTodoList)
-    const todos = localStorage.getItem('todos')
-    
-    if (todos != null) {
-        var initialTodoList2 = JSON.parse(todos)
-    }
-    useEffect(()=> {
-        if (initialTodoList2) {
-            setTodoList(initialTodoList2)
-        }// eslint-disable-next-line
-    }, [setTodoList])
-
+    const [todoList, setTodoList] = useState(()=> {
+        const todos = localStorage.getItem('todos')
+        let initialTodoList: Array<Element> = []
+        if (todos != null) {
+            initialTodoList = JSON.parse(todos);
+        }
+        return initialTodoList
+    })
 
     const [filter, setFilter] = useState(FilterOptions.All)
     const doneCount = todoList && todoList.filter((el: Element) => !el.done).length;
-
-
+  
     const setTodoListWithLocalStorage = useCallback((e: Array<Element>) => {
         setTodoList(e)
         localStorage.setItem('todos', JSON.stringify(e));
