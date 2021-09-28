@@ -7,13 +7,14 @@ import type { Element } from 'types';
 import s from './index.module.css'
 
 const App = () => {
-    let initialTodoList: Array<Element> = []
-    const todos = localStorage.getItem('todos')
-    if (todos != null) {
-        const initialTodoList2 = JSON.parse(todos)
-        initialTodoList = initialTodoList2
-    }
-    const [todoList, setTodoList] = useState(initialTodoList)
+    const [todoList, setTodoList] = useState(()=> {
+        const todos = localStorage.getItem('todos')
+        let initialTodoList: Array<Element> = []
+        if (todos != null) {
+            initialTodoList = JSON.parse(todos);
+        }
+        return initialTodoList || []
+    })
     
     const [filter, setFilter] = useState('all')
     const doneCount = todoList && todoList.filter((el: Element) => !el.done).length;
