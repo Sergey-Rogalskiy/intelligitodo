@@ -46,19 +46,18 @@ const App = () => {
         })
     }, [setTodoList])
 
-    const showVisibleItems = useCallback(() => {
-		switch(filter) {
-			case FilterOptions.All:
-				return todoList;
-			case FilterOptions.Current:
-				return todoList.filter((item) => !item.done);
-			case FilterOptions.Done:
-				return todoList.filter((item) => item.done);
-			default:
-				return todoList;
-        }
-    }, [todoList, filter])
-    const visibleItems = showVisibleItems()
+    const visibleItems = useMemo(() => {
+            switch(filter) {
+                case FilterOptions.All:
+                    return todoList;
+                case FilterOptions.Current:
+                    return todoList.filter((item) => !item.done);
+                case FilterOptions.Done:
+                    return todoList.filter((item) => item.done);
+                default:
+                    return todoList;
+            }
+      }, [todoList, filter]);
     
     return(
         <div className={s.container}>
