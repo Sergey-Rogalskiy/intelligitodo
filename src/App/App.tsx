@@ -24,7 +24,7 @@ const App = () => {
             ...todoList,
             {id: Date.now(), label: text, done: false},
         ]
-        setTodoList(newArray)
+        setTodoList(()=>newArray)
     }, [todoList])
     
     //Options
@@ -34,14 +34,16 @@ const App = () => {
     // TodoList
     const removeItem = useCallback((index:number) => {
         const newArray = todoList.filter((el) => el.id !== index);
-        setTodoList(newArray)
+        setTodoList(()=>newArray)
     }, [todoList])
     
     const toogleDone = useCallback((id:number, checked:boolean) => {
-        let newArray = [...todoList]
-        const index = newArray.findIndex((el) => el.id === id);
-        newArray[index].done = checked
-        setTodoList(newArray)
+        setTodoList((prevState)=>{
+            let newArray = [...prevState]
+            const index = newArray.findIndex((el) => el.id === id);
+            newArray[index].done = checked
+            return newArray
+        })
     }, [todoList])
 
     const showVisibleItems = useCallback(() => {
