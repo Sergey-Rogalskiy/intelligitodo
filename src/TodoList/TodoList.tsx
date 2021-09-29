@@ -1,7 +1,76 @@
 import type { FC } from 'react'
 import type { Element} from 'types'
-import s from './index.module.css'
 import { FilterOptions } from 'Options/Options'
+import styled from 'styled-components'
+
+const List = styled.ul`
+    background-color: #fff;
+    border-radius: 5px;
+`;
+const ElementLi = styled.li`
+    padding: 10px 20px;
+    border-bottom: solid 3px #aaa;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+`;
+const Label = styled.label`
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    padding: 0 0 0 15px;
+    &:hover {
+        color: #aaa;
+    }
+    & .checked {
+        color: #000;
+        text-decoration: line-through;
+    }
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 0.5em;
+        height: 0.5em;
+        flex-shrink: 0;
+        flex-grow: 0;
+        background-color: #0000;
+        border: solid 1px #000;
+        box-sizing: border-box;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+`;
+const CustomCheckbox = styled.input`
+    width: 30px;    
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    &:checked+${Label}::before {
+        background-color: #000;
+        box-sizing: border-box;
+    }
+    &:checked+${Label} {
+        color: #000;
+        text-decoration: line-through;
+    }
+    &+${Label}:hover::before {
+        background-color: #aaa;
+    }
+    &:active+${Label}::before {
+        background-color: #aaa;
+    }
+`;
+const Button = styled.button`
+    background-color: #0000;
+    border: none;
+    border-radius: 50%;
+    &:hover {
+        color: #aaa;
+    }
+    &:active {
+        font-weight: 900;
+    }
+`;
 
 type TodoListProps = {
     filter: string
@@ -11,7 +80,7 @@ type TodoListProps = {
 
 const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
     const {todoList, setTodoList, filter} = props
-
+    
     const setDone = (e: React.ChangeEvent<HTMLInputElement>, id:number) => {
         // e.preventDefault()
         let newArray = [...todoList]
@@ -48,26 +117,28 @@ const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
     const visibleItems = showVisibleItems()
     
     return(
-        <ul className={s.list}>
+        <List>
             {
                 visibleItems.map((item: Element) => {
                     return(
-                        <li key={item.id} className={s.element}>
+                        <ElementLi key={item.id}>
                             <span>
-                                <input 
+                                <CustomCheckbox 
                                 id={item.id.toString()} 
-                                className={s.custom_checkbox} 
                                 type="checkbox"
                                 checked={item.done} 
                                 onChange={(e) => setDone(e, item.id)}/>
-                                <label htmlFor={item.id.toString()} className={`${s.label} ${item.done ? s.checked : ''}`}>{item.label}</label> 
+                                <Label 
+                                htmlFor={item.id.toString()}>
+                                    {item.label}
+                                </Label> 
                             </span>
-                            <button className={s.button} onClick={e=>deleteItem(e, item.id)}>x</button>
-                        </li>
+                            <Button onClick={e=>deleteItem(e, item.id)}>x</Button>
+                        </ElementLi>
                     )
                 })
             }
-        </ul>
+        </List>
     )
 }
 

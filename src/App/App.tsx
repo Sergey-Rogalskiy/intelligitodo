@@ -4,8 +4,18 @@ import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
 import type { Element } from 'types';
 import { FilterOptions } from 'Options/Options';
+import styled from 'styled-components'
 
-import s from './index.module.css'
+const Container = styled.div`
+    margin: auto;
+    width: 50%;
+    font-family: 'Courier New', Courier, monospace;
+    min-width: 350px;
+`;
+const Inner = styled.div`
+    background-color: blueviolet;
+    box-shadow: 0px 00px 50px #0005;
+`;
 
 const App = () => {
     const [todoList, setTodoList] = useState(()=> {
@@ -26,15 +36,15 @@ const App = () => {
     }, [])
     
     return(
-        <div className={s.container}>
+        <Container>
             <h1>TODO</h1>
             <AddItem setTodoList={setTodoListWithLocalStorage} todoList={todoList}/>
 
-            <div className={s.inner}>
+            <Inner>
                 <TodoList setTodoList={setTodoListWithLocalStorage} todoList={todoList} filter={filter}/>
                 <Options filter={filter} setFilter={setFilter} doneCount={doneCount} />
-            </div>
-        </div>
+            </Inner>
+        </Container>
     )
 }
 

@@ -1,11 +1,42 @@
 import { FC } from 'react';
-import s from './index.module.css'
+import styled from 'styled-components'
 
 type OptionsProps = {
     filter: string
     setFilter: any
     doneCount: number
 }
+const OptionsStyle = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px 0;
+    & button {
+        background-color: #0000;
+        width: 100%;
+        border: none;
+        font-size: 0.6rem;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    & button:hover{
+        color: #aaa;
+    }
+`;
+const Counter = styled.div`
+    box-sizing: border-box;
+    margin: 0 10px;
+    padding: 0 20px;
+    white-space: nowrap;
+    font-size: 0.6rem;
+    border-right: solid 2px #aaa
+`;
+const Button = styled.button`
+    &:filter {
+        font-weight: 900;
+    }   
+`;
 
 export enum FilterOptions {
     All= "All",
@@ -18,19 +49,19 @@ const Options:FC<OptionsProps> = (props) => {
     const buttons = FilterOptions
 
     return(
-        <div className={s.options}>
-            <div className={s.counter}>{doneCount} left</div>
+        <OptionsStyle>
+            <Counter>{doneCount} left</Counter>
             {
                 Object.keys(FilterOptions).map((item, index) => {
                     return(
-                        <button key={index} 
-                            className={filter === item ? s.active : ''} onClick={()=>{setFilter(item)}}>
+                        <Button key={index}
+                        onClick={()=>{setFilter(item)}}>
                             {item}
-                        </button>
+                        </Button>
                     )
                 })
             }
-        </div>
+        </OptionsStyle>
     )
 }
 
