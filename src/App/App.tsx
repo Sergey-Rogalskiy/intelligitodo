@@ -29,11 +29,11 @@ const App = () => {
     
     //Options
     const [filter, setFilter] = useState(FilterOptions.All)
-    const doneCount = useMemo(()=>todoList && todoList.filter((el: Element) => !el.done).length,[todoList])
+    const doneCount = useMemo(()=>todoList && todoList.filter((el) => !el.done).length,[todoList])
   
     // TodoList
     const removeItem = useCallback((index:number) => {
-        const newArray = todoList.filter((el: Element) => el.id !== index);
+        const newArray = todoList.filter((el) => el.id !== index);
         setTodoList(newArray)
     }, [todoList])
     
@@ -49,9 +49,9 @@ const App = () => {
 			case FilterOptions.All:
 				return todoList;
 			case FilterOptions.Current:
-				return todoList.filter((item: Element) => !item.done);
+				return todoList.filter((item) => !item.done);
 			case FilterOptions.Done:
-				return todoList.filter((item: Element) => item.done);
+				return todoList.filter((item) => item.done);
 			default:
 				return todoList;
         }
