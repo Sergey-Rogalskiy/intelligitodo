@@ -20,11 +20,12 @@ const App = () => {
 
     // AddItem
     const addItem = useCallback((text:string) => {
-        const newArray = [
-            ...todoList,
-            {id: Date.now(), label: text, done: false},
-        ]
-        setTodoList(()=>newArray)
+        setTodoList((prevState)=>{
+            return [
+                ...prevState,
+                {id: Date.now(), label: text, done: false},
+            ]
+        })
     }, [todoList])
     
     //Options
@@ -33,8 +34,7 @@ const App = () => {
   
     // TodoList
     const removeItem = useCallback((index:number) => {
-        const newArray = todoList.filter((el) => el.id !== index);
-        setTodoList(()=>newArray)
+        setTodoList((prevState)=>prevState.filter((el) => el.id !== index))
     }, [todoList])
     
     const toogleDone = useCallback((id:number, checked:boolean) => {
