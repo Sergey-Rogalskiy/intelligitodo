@@ -15,8 +15,7 @@ export enum FilterOptions {
 
 const Options:FC<OptionsProps> = (props) => {
     const {filter, setFilter, doneCount} = props
-    const buttons = FilterOptions
-
+    
     return(
         <div className={s.options}>
             <div className={s.counter}>{doneCount} left</div>

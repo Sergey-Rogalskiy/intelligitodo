@@ -1,32 +1,26 @@
 import { useState, memo } from 'react';
 import type { FC } from 'react';
-import type { Element } from 'types'
 import s from './index.module.css'
 
 type AddItemProps = {
-    setTodoList: any
-    todoList: Array<Element>
+    addItem(e: string): void
 }
 
 const AddItem:FC<AddItemProps> = (props) => {
-    const {todoList, setTodoList} = props
+    const {addItem} = props
     const [text, setText] = useState('')
-
-    const addItem = (e: React.FormEvent<EventTarget>) => {
+    
+    const _addItem = (e: React.FormEvent<EventTarget>) => {
         e.preventDefault()
         if (text) {
-            setTodoList(
-                [
-                    ...todoList,
-                    {id: Date.now(), label: text, done: false}
-                ]
-            )
+            addItem(text)
+            setText('')
         }
-        setText('')
     }
+
     return(
         <div className={s.new_element}>
-            <form onSubmit={(e) => {addItem(e)}}>
+            <form onSubmit={_addItem}>
                 <button>&#10010;</button>
                 <input 
                     type="text" 
