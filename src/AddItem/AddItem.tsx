@@ -10,7 +10,7 @@ const AddItem:FC<AddItemProps> = (props) => {
     const {addItem} = props
     const [text, setText] = useState('')
     
-    const _addItem = (e: React.FormEvent<EventTarget>) => {
+    const onSubmit = (e: React.FormEvent<EventTarget>) => {
         e.preventDefault()
         if (text) {
             addItem(text)
@@ -20,7 +20,7 @@ const AddItem:FC<AddItemProps> = (props) => {
 
     return(
         <div className={s.new_element}>
-            <form onSubmit={_addItem}>
+            <form onSubmit={onSubmit}>
                 <button>&#10010;</button>
                 <input 
                     type="text" 
