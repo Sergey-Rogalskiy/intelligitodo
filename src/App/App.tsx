@@ -26,7 +26,7 @@ const App = () => {
                 {id: Date.now(), label: text, done: false},
             ]
         })
-    }, [setTodoList])
+    }, [])
     
     //Options
     const [filter, setFilter] = useState(FilterOptions.All)
@@ -35,7 +35,7 @@ const App = () => {
     // TodoList
     const removeItem = useCallback((index:number) => {
         setTodoList((prevState)=>prevState.filter((el) => el.id !== index))
-    }, [setTodoList])
+    }, [])
     
     const toogleDone = useCallback((id:number, checked:boolean) => {
         setTodoList((prevState)=>{
@@ -44,7 +44,7 @@ const App = () => {
             newArray[index].done = checked
             return newArray
         })
-    }, [setTodoList])
+    }, [])
 
     const visibleItems = useMemo(() => {
             switch(filter) {
