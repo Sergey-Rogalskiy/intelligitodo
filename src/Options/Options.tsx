@@ -15,15 +15,14 @@ export enum FilterOptions {
 
 const Options:FC<OptionsProps> = (props) => {
     const {filter, setFilter, doneCount} = props
-    const buttons = FilterOptions
-
+    
     return(
         <div className={s.options}>
             <div className={s.counter}>{doneCount} left</div>
             {
-                Object.keys(FilterOptions).map((item, index) => {
+                Object.keys(FilterOptions).map((item) => {
                     return(
-                        <button key={index} 
+                        <button key={item} 
                             className={filter === item ? s.active : ''} onClick={()=>{setFilter(item)}}>
                             {item}
                         </button>

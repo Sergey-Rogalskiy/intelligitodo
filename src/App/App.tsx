@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import AddItem from 'AddItem/AddItem';
 import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
@@ -16,22 +16,53 @@ const App = () => {
         }
         return initialTodoList
     })
+    useEffect(()=>localStorage.setItem('todos', JSON.stringify(todoList)), [todoList])
 
+    // AddItem
+    const addItem = useCallback((text:string) => {
+            setTodoList((prevState)=>{
+                return prevState.concat({id: Date.now(), label: text, done: false})
+            })
+        }, [])
+
+    //Options
     const [filter, setFilter] = useState(FilterOptions.All)
-    const doneCount = todoList && todoList.filter((el: Element) => !el.done).length;
+    const doneCount = useMemo(()=>todoList && todoList.filter((el) => !el.done).length,[todoList])
   
-    const setTodoListWithLocalStorage = useCallback((e: Array<Element>) => {
-        setTodoList(e)
-        localStorage.setItem('todos', JSON.stringify(e));
+    // TodoList
+    const removeItem = useCallback((index:number) => {
+        setTodoList((prevState)=>prevState.filter((el) => el.id !== index))
     }, [])
+    
+    const toogleDone = useCallback((id:number, checked:boolean) => {
+        setTodoList((prevState)=>{
+            let newArray = [...prevState]
+            const index = newArray.findIndex((el) => el.id === id);
+            newArray[index] = {...newArray[index], done: checked}
+            return newArray
+        })
+    }, [])
+
+    const visibleItems = useMemo(() => {
+            switch(filter) {
+                case FilterOptions.All:
+                    return todoList;
+                case FilterOptions.Current:
+                    return todoList.filter((item) => !item.done);
+                case FilterOptions.Done:
+                    return todoList.filter((item) => item.done);
+                default:
+                    return todoList;
+            }
+      }, [todoList, filter]);
     
     return(
         <div className={s.container}>
             <h1>TODO</h1>
-            <AddItem setTodoList={setTodoListWithLocalStorage} todoList={todoList}/>
+            <AddItem addItem={addItem}/>
 
             <div className={s.inner}>
-                <TodoList setTodoList={setTodoListWithLocalStorage} todoList={todoList} filter={filter}/>
+                <TodoList removeItem={removeItem} toogleDone={toogleDone} visibleItems={visibleItems}/>
                 <Options filter={filter} setFilter={setFilter} doneCount={doneCount} />
             </div>
         </div>
