@@ -25,12 +25,11 @@ const OptionsStyle = styled.div`
     }
 `;
 const Counter = styled.div`
-    box-sizing: border-box;
     margin: 0 10px;
     padding: 0 20px;
     white-space: nowrap;
     font-size: 0.6rem;
-    border-right: solid 2px #aaa
+    border-right: solid 2px #aaa;
 `;
 
 interface ButtonProps {

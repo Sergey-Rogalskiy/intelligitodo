@@ -15,24 +15,18 @@ const ElementLi = styled.li`
     flex-direction: row;
 `;
 const Label = styled.label`
-    display: inline-flex;
+    display: inline;
     align-items: center;
     user-select: none;
     padding: 0 0 0 15px;
     &:hover {
         color: #aaa;
     }
-    .checked {
-        color: #000;
-        text-decoration: line-through;
-    }
     &::before {
         content: '';
         display: inline-block;
         width: 0.5em;
         height: 0.5em;
-        flex-shrink: 0;
-        flex-grow: 0;
         background-color: #0000;
         border: solid 1px #000;
         box-sizing: border-box;
@@ -52,6 +46,9 @@ const CustomCheckbox = styled.input`
     &:checked+${Label} {
         color: #000;
         text-decoration: line-through;
+    }
+    &:checked:hover+${Label} {
+        color: #aaa;
     }
     &+${Label}:hover::before {
         background-color: #aaa;

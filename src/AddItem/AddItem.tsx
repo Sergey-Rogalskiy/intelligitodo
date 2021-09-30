@@ -33,10 +33,6 @@ const Button = styled.button`
     border: none;
     width: 30px;    
     height: 30px;
-    font-size: 0.7rem;
-    color: #000;
-    padding: 0;
-    line-height: 60%;
     &:hover {
         color: #aaa;
     }
