@@ -41,7 +41,7 @@ const App = () => {
         setTodoList((prevState)=>{
             let newArray = [...prevState]
             const index = newArray.findIndex((el) => el.id === id);
-            newArray[index].done = checked
+            newArray[index] = {...newArray[index], done: checked}
             return newArray
         })
     }, [])
