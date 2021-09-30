@@ -32,10 +32,12 @@ const Counter = styled.div`
     font-size: 0.6rem;
     border-right: solid 2px #aaa
 `;
-const Button = styled.button`
-    &:filter {
-        font-weight: 900;
-    }   
+
+interface ButtonProps {
+    filter: boolean
+}
+const Button = styled.button<ButtonProps>`
+        font-weight: ${({filter}) => filter ? '900' : '100'};
 `;
 
 export enum FilterOptions {
@@ -54,7 +56,7 @@ const Options:FC<OptionsProps> = (props) => {
             {
                 Object.keys(FilterOptions).map((item, index) => {
                     return(
-                        <Button key={index}
+                        <Button key={index} filter={filter === item ? true: false}
                         onClick={()=>{setFilter(item)}}>
                             {item}
                         </Button>
