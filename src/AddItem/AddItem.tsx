@@ -18,14 +18,14 @@ const NewElement = styled.div`
     box-shadow: 0px 00px 50px #0005;
 `;
 const Input = styled.input`
-background-color: #0000;
-border: none;
-font-family: 'Courier New', Courier, monospace;
-font-size: 0.9rem;
-padding: 0 20px;
-&:focus {
-    outline: none;
-}
+    background-color: #0000;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    padding: 0 20px;
+    &:focus {
+        outline: none;
+    }
 `;
 const Button = styled.button`
     margin: 0 0 0 10px;

@@ -13,14 +13,14 @@ const OptionsStyle = styled.div`
     background-color: #fff;
     border-radius: 5px;
     padding: 15px 0;
-    & button {
+    button {
         background-color: #0000;
         width: 100%;
         border: none;
         font-size: 0.6rem;
         font-family: 'Courier New', Courier, monospace;
     }
-    & button:hover{
+    button:hover{
         color: #aaa;
     }
 `;

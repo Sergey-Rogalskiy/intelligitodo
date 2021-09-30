@@ -22,7 +22,7 @@ const Label = styled.label`
     &:hover {
         color: #aaa;
     }
-    & .checked {
+    .checked {
         color: #000;
         text-decoration: line-through;
     }
