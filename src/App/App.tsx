@@ -20,14 +20,11 @@ const App = () => {
 
     // AddItem
     const addItem = useCallback((text:string) => {
-        setTodoList((prevState)=>{
-            return [
-                ...prevState,
-                {id: Date.now(), label: text, done: false},
-            ]
-        })
-    }, [])
-    
+            setTodoList((prevState)=>{
+                return prevState.concat({id: Date.now(), label: text, done: false})
+            })
+        }, [])
+
     //Options
     const [filter, setFilter] = useState(FilterOptions.All)
     const doneCount = useMemo(()=>todoList && todoList.filter((el) => !el.done).length,[todoList])
