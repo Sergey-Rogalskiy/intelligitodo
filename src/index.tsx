@@ -1,11 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'App/App'
-import 'index.module.css';
+import {createGlobalStyle} from 'styled-components'
 
+const Global = createGlobalStyle`
+html {
+  font-size: 24px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+`;
 
 ReactDOM.render(
     <React.StrictMode>
+        <Global />
         <App />
     </React.StrictMode>,
   document.getElementById('root')

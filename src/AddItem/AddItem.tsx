@@ -1,7 +1,7 @@
 import { useState, memo } from 'react';
 import type { FC } from 'react';
 import type { Element } from 'types'
-import s from './index.module.css'
+import { NewElement, Input, Button } from './elements'
 
 type AddItemProps = {
     setTodoList: any
@@ -25,16 +25,16 @@ const AddItem:FC<AddItemProps> = (props) => {
         setText('')
     }
     return(
-        <div className={s.new_element}>
+        <NewElement>
             <form onSubmit={(e) => {addItem(e)}}>
-                <button>&#10010;</button>
-                <input 
+                <Button>&#10010;</Button>
+                <Input 
                     type="text" 
                     placeholder='Add item' 
                     value={text}
                     onChange={(e) => setText(e.target.value)}/>
             </form>
-        </div>
+        </NewElement>
     )
 }
 

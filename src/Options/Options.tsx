@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import s from './index.module.css'
+import { OptionsStyle, Counter, Button,  } from './elements'
 
 type OptionsProps = {
     filter: string
@@ -18,19 +18,19 @@ const Options:FC<OptionsProps> = (props) => {
     const buttons = FilterOptions
 
     return(
-        <div className={s.options}>
-            <div className={s.counter}>{doneCount} left</div>
+        <OptionsStyle>
+            <Counter>{doneCount} left</Counter>
             {
                 Object.keys(FilterOptions).map((item, index) => {
                     return(
-                        <button key={index} 
-                            className={filter === item ? s.active : ''} onClick={()=>{setFilter(item)}}>
+                        <Button key={index} filter={filter === item ? true: false}
+                        onClick={()=>{setFilter(item)}}>
                             {item}
-                        </button>
+                        </Button>
                     )
                 })
             }
-        </div>
+        </OptionsStyle>
     )
 }
 

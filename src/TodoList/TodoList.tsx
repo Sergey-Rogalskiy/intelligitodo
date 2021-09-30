@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import type { Element} from 'types'
-import s from './index.module.css'
 import { FilterOptions } from 'Options/Options'
+import { List, ElementLi, Label, CustomCheckbox, Button } from './elements'
 
 type TodoListProps = {
     filter: string
@@ -11,7 +11,7 @@ type TodoListProps = {
 
 const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
     const {todoList, setTodoList, filter} = props
-
+    
     const setDone = (e: React.ChangeEvent<HTMLInputElement>, id:number) => {
         // e.preventDefault()
         let newArray = [...todoList]
@@ -48,26 +48,28 @@ const TodoList:FC<TodoListProps> = (props: TodoListProps) => {
     const visibleItems = showVisibleItems()
     
     return(
-        <ul className={s.list}>
+        <List>
             {
                 visibleItems.map((item: Element) => {
                     return(
-                        <li key={item.id} className={s.element}>
+                        <ElementLi key={item.id}>
                             <span>
-                                <input 
+                                <CustomCheckbox 
                                 id={item.id.toString()} 
-                                className={s.custom_checkbox} 
                                 type="checkbox"
                                 checked={item.done} 
                                 onChange={(e) => setDone(e, item.id)}/>
-                                <label htmlFor={item.id.toString()} className={`${s.label} ${item.done ? s.checked : ''}`}>{item.label}</label> 
+                                <Label 
+                                htmlFor={item.id.toString()}>
+                                    {item.label}
+                                </Label> 
                             </span>
-                            <button className={s.button} onClick={e=>deleteItem(e, item.id)}>x</button>
-                        </li>
+                            <Button onClick={e=>deleteItem(e, item.id)}>x</Button>
+                        </ElementLi>
                     )
                 })
             }
-        </ul>
+        </List>
     )
 }
 

@@ -4,8 +4,7 @@ import TodoList from 'TodoList/TodoList';
 import Options from 'Options/Options';
 import type { Element } from 'types';
 import { FilterOptions } from 'Options/Options';
-
-import s from './index.module.css'
+import { Container, Inner } from './elements'
 
 const App = () => {
     const [todoList, setTodoList] = useState(()=> {
@@ -26,15 +25,15 @@ const App = () => {
     }, [])
     
     return(
-        <div className={s.container}>
+        <Container>
             <h1>TODO</h1>
             <AddItem setTodoList={setTodoListWithLocalStorage} todoList={todoList}/>
 
-            <div className={s.inner}>
+            <Inner>
                 <TodoList setTodoList={setTodoListWithLocalStorage} todoList={todoList} filter={filter}/>
                 <Options filter={filter} setFilter={setFilter} doneCount={doneCount} />
-            </div>
-        </div>
+            </Inner>
+        </Container>
     )
 }
 
