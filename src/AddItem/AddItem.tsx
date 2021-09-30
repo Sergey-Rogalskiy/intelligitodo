@@ -26,10 +26,6 @@ padding: 0 20px;
 &:focus {
     outline: none;
 }
-&:placeholder {
-    font-size: 0.9rem;
-    font-family: 'Courier New', Courier, monospace;
-}
 `;
 const Button = styled.button`
     margin: 0 0 0 10px;
