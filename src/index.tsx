@@ -5,7 +5,7 @@ import {createGlobalStyle} from 'styled-components'
 
 const Global = createGlobalStyle`
 html {
-  font-size: 2rem;
+  font-size: 24px;
 }
 
 ul {
